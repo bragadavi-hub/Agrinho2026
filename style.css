@@ -1,3 +1,178 @@
-p {
-    color: blue;
+/* VARIÁVEIS DE CORES */
+:root {
+    /* PALETA ESCURA CONFORTÁVEL (Tons de Azul Escuro e Preto para descanso visual) */
+    --cor-fundo-geral: #0a0f1d;     /* Preto azulado profundo de fundo */
+    --cor-fundo-card: #141b2d;      /* Azul escuro grafite para destacar os blocos */
+    
+    --cor-texto-claro: #e2e8f0;     /* Branco acinzentado suave (não choca os olhos) */
+    --cor-texto-escuro: #94a3b8;    /* Cinza azulado para textos secundários */
+    --cor-destaque: #38bdf8;        /* Azul celeste para os títulos principais */
+
+    /* BOTÕES E BORDAS */
+    --cor-botao-fundo: #1e293b;     /* Azul ardósia escuro */
+    --cor-botao-texto: #38bdf8;     /* Texto azul claro combinando com o destaque */
+    --cor-borda: #1e3a8a;           /* Borda azul marinho discreta */
+}
+
+/* MODO DE ALTO CONTRASTE (Preto Total e Neon para acessibilidade severa) */ 
+body.alto-contraste {
+    --cor-fundo-geral: #000000;     /* Preto absoluto */
+    --cor-fundo-card: #050b14;      /* Quase preto */
+
+    --cor-texto-claro: #ffffff;     /* Branco puro */
+    --cor-texto-escuro: #00f5ff;    /* Ciano neon */
+    --cor-destaque: #00f5ff;        /* Ciano neon */
+    
+    --cor-botao-fundo: #000000;     
+    --cor-botao-texto: #ffffff;     
+
+    --cor-borda: #ffffff;           
+}
+
+/* CONFIGURAÇÕES GERAIS */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cor-fundo-geral);
+    color: var(--cor-texto-claro);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--cor-fundo-card);
+    border-bottom: 3px solid var(--cor-borda);
+}
+
+/* Logo do site */
+.logo-site {
+    max-width: 400px;       
+    height: auto;           
+    border-radius: 50%;     
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6); 
+    margin-bottom: 2px;    
+    transition: transform 0.3s ease, filter 0.3s ease; 
+    display: block;         
+    margin-left: auto;
+    margin-right: auto;
+    filter: brightness(0.9); /* Suaviza o brilho da imagem original */
+}
+
+.logo-site:hover {
+    transform: scale(1.05); 
+}
+
+body.alto-contraste .logo-site {
+    border: 2px solid var(--cor-borda); 
+    filter: brightness(0.75);            
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--cor-destaque);
+}
+
+header h2 {
+    font-size: 1rem;
+    color: var(--cor-texto-escuro);
+}
+
+.autores {
+    color: var(--cor-destaque);
+    font-weight: bold;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.menu button {
+    padding: 12px 20px;
+    border: 2px solid var(--cor-borda);
+    background-color: var(--cor-botao-fundo);
+    color: var(--cor-botao-texto);
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    transform: scale(1.05);
+    background-color: var(--cor-botao-texto);
+    color: #0a0f1d;
+}
+
+/* PÁGINAS */
+.pagina {
+    display: none;
+}
+
+.ativa {
+    display: block;
+}
+
+/* POSTS */
+main {
+    width: 100%; 
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    flex: 1; 
+}
+
+.post {
+    background-color: var(--cor-fundo-card);
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.post h2 {
+    color: var(--cor-destaque);
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+}
+
+/* RODAPÉ */
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    background-color: var(--cor-fundo-card);
+    border-top: 3px solid var(--cor-borda);
+    color: var(--cor-texto-escuro);
+}
+
+/* BOTÃO UTIL DE ACESSIBILIDADE */
+.acessibilidade-container {
+    text-align: right;
+}
+
+.btn-util {
+    width: auto !important;
+    padding: 8px 12px !important;
+    background-color: var(--cor-botao-fundo) !important; 
+    color: var(--cor-botao-texto) !important;            
+    border: 2px solid var(--cor-borda) !important;       
+    cursor: pointer;                                     
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+@media(max-width: 600px){
+    .menu {
+        flex-direction: column;
+    }
 }
